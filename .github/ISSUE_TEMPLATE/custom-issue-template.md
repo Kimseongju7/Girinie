@@ -1,4 +1,10 @@
-
+---
+name: Issue
+about: 이슈 템플릿
+title: "[ISSUE] "
+labels: ""
+assignees: ""
+---
 ## #️⃣이슈넘버
 <!--[이슈 라벨/#이슈넘버]설명-->
 <!--ex.[ui/#3]로그인페이지구현-->
