@@ -1,0 +1,16 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["Girinie-frontend/src/*"]
+    },
+    "types": ["vite-plugin-svgr/client"],
+    "typeRoots": ["./node_modules/@types", "./src/types"]
+  },
+  "include": ["Girinie-frontend/svg.d.ts"]
+}
