@@ -8,7 +8,7 @@ export default {
         },
         colors: {
           /** Primary Colors **/
-          primary: "#3D5AFE",
+          primary: "#F9E0AE",
           "on-primary":
             "#FFFFF/** @type {import('tailwindcss').Config} */\n" +
             "export default {\n" +
