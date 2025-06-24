@@ -8,7 +8,7 @@ export default {
         },
         colors: {
           /** Primary Colors **/
-          primary: "#3D5AFE",
+          primary: "#FEF1B0",
           "on-primary":
             "#FFFFF/** @type {import('tailwindcss').Config} */\n" +
             "export default {\n" +
@@ -83,13 +83,13 @@ export default {
           "on-primary-container": "#3D5AFE",
   
           /** Secondary Colors **/
-          secondary: "#5C6BC0",
+          secondary: "#FFE76A",
           "on-secondary": "#FFFFFF",
           "secondary-container": "#DDE7FF",
           "on-secondary-container": "#2C3A87",
   
           /** Tertiary Colors **/
-          tertiary: "#52A87F",
+          tertiary: "#E0AB5B",
           "on-tertiary": "#FFFFFF",
           "tertiary-container": "#FBE47A",
           "on-tertiary-container": "#141414",
