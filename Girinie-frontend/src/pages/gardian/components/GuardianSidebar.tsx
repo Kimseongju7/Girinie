@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
-import ChildList from "../components/addChild";
+// import ChildData from "@/lib/childData";
+import ChildList from "@/lib/childList"
 
 const Sidebar = () => {
   const location = useLocation();
