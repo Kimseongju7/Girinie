@@ -11,9 +11,9 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F7E0AF]">
-      <div className="flex items-center justify-center pt-20">
-        <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-md">
+    <div className="min-h-screen bg-[#FEF1B0]">
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="h-[350px] w-[500px] rounded-lg bg-white p-8 shadow-md">
           <h2 className="mb-6 text-2xl font-semibold">로그인</h2>
           <input
             type="text"
@@ -23,6 +23,7 @@ export default function LoginPage() {
           <input
             type="password"
             placeholder="비밀번호"
+            //autoComplete="off"
             className="mb-4 w-full rounded border border-gray-300 p-2"
           />
 
