@@ -16,7 +16,7 @@ const Sidebar = () => {
       <nav className="mt-auto divide-y divide-[#D9D9D9] border-t border-[#D9D9D9]">
         <div
           className={`hover:text-tertiary cursor-pointer px-8 py-4 ${
-            isActive('/report') ? 'font-bold text-black' : 'text-gray-400'
+            isActive('/report') ? 'font-semibold text-black' : 'text-gray-400'
           }`}
           onClick={() => navigate('/report')}
         >
@@ -24,7 +24,7 @@ const Sidebar = () => {
         </div>
         <div
           className={`hover:text-tertiary cursor-pointer px-8 py-4 ${
-            isActive('/settings') ? 'font-bold text-black' : 'text-gray-400'
+            isActive('/settings') ? 'font-semibold text-black' : 'text-gray-400'
           }`}
           onClick={() => navigate('/settings')}
         >
