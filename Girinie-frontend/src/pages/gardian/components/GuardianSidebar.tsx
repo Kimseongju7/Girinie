@@ -1,9 +1,9 @@
-import { useLocation } from 'react-router-dom';
-// import ChildData from "@/lib/childData";
-import ChildList from "@/lib/childList"
+import { useLocation, useNavigate } from 'react-router-dom';
+import ChildList from "@/lib/childList";
 
 const Sidebar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -15,9 +15,10 @@ const Sidebar = () => {
 
       <nav className="mt-auto divide-y divide-[#D9D9D9] border-t border-[#D9D9D9]">
         <div
-        className={`hover:text-tertiary cursor-pointer px-8 py-4 ${
-          isActive('/report') ? 'font-bold text-black' : 'text-gray-400'
-        }`}
+          className={`hover:text-tertiary cursor-pointer px-8 py-4 ${
+            isActive('/report') ? 'font-bold text-black' : 'text-gray-400'
+          }`}
+          onClick={() => navigate('/report')}
         >
           캘린더
         </div>
@@ -25,6 +26,7 @@ const Sidebar = () => {
           className={`hover:text-tertiary cursor-pointer px-8 py-4 ${
             isActive('/settings') ? 'font-bold text-black' : 'text-gray-400'
           }`}
+          onClick={() => navigate('/settings')}
         >
           설정
         </div>
