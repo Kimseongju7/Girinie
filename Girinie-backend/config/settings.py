@@ -49,7 +49,7 @@ CUSTOM_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'rest_framework',
+    'rest_framework', 'drf_yasg'
 ]
 
 INSTALLED_APPS = SYSTEM_APPS + CUSTOM_APPS + THIRD_PARTY_APPS
@@ -137,3 +137,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'parent_users.ParentUser'
+
+ALLOWED_HOSTS = ['*']  # 개발용으로만 허용 나중에 바꿔야 함
