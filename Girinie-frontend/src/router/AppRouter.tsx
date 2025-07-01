@@ -6,6 +6,8 @@ import SignupPage from "@/pages/signup/SignupPage";
 import GuardianPage from "@/pages/gardian/GuardianPage";
 import ChildPage from "@/pages/child/ChildPage";
 import FindAccountPage from "@/pages/account/FindAccountPage";
+import ParentCalendar from "@/pages/calendar/ParentCalendar";
+import KidCalendar from "@/pages/calendar/KidCalendar";
 // import GuardianLayout from '@/components/layout/GuardianLayout';
 
 export default function AppRouter() {
@@ -18,6 +20,8 @@ export default function AppRouter() {
         <Route path="guardian" element={<GuardianPage />} />
         <Route path="child" element={<ChildPage />} />
         <Route path="/find-account" element={<FindAccountPage />} />
+        <Route path="/calendar/parent" element={<ParentCalendar />} />
+        <Route path="/calendar/kid" element={<KidCalendar />} />
         {/* 추가로 여기다가 report, settings도 계속 추가 */}
       </Routes>
     </BrowserRouter>
