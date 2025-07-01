@@ -12,7 +12,7 @@ from drf_yasg import openapi
 from .serializers import ParentUserSerializer
 
 
-class Login(APIView):
+class LoginView(APIView):
 
     @swagger_auto_schema(
         operation_summary="로그인",
@@ -46,7 +46,7 @@ class Login(APIView):
             raise AuthenticationFailed({'error': 'Invalid username or password'})
 
 
-class Logout(APIView):
+class LogoutView(APIView):
     permission_classes = [IsAuthenticated]
 
     @swagger_auto_schema(
@@ -62,7 +62,7 @@ class Logout(APIView):
         return Response({"message": "Logged out"}, status=HTTP_200_OK)
 
 
-class ParentUsers(APIView):
+class UserCreateView(APIView):
 
     @swagger_auto_schema(
         operation_summary="회원가입",
@@ -99,3 +99,20 @@ class ParentUsers(APIView):
             'message': 'User registered successfully',
             'user': serializer.data
         }, status=HTTP_201_CREATED)
+
+class UserDeleteView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    @swagger_auto_schema(
+        operation_summary="회원 탈퇴",
+        operation_description="현재 로그인된 사용자의 계정을 삭제합니다.",
+        responses={
+            200: openapi.Response(description='계정 삭제 성공'),
+            403: openapi.Response(description='로그인 필요'),
+        }
+    )
+    def delete(self, request):
+        user = request.user
+        username = user.username
+        user.delete()
+        return Response({'message': f'User {username} deleted successfully.'}, status=HTTP_200_OK)
