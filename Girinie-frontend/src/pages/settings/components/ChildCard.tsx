@@ -11,20 +11,20 @@ const ChildCard: React.FC<ChildCardProps> = ({ child }) => {
         <img
             src={child.avatarUrl ?? "/img/default-avatar.png"}
             alt={child.name}
-            className="w-24 h-24 rounded-full bg-gray-200 mb-4"
+            className="w-24 h-24 rounded-full bg-gray-200 mb-7"
         />
         <div className="w-full text-sm text-gray-700 space-y-2">
             <hr className="border-gray-300" />
             <div>이름: {child.name}</div>
             <hr className="border-gray-300" />
-            <div>나이: {child.age}</div>
+            <div>나이: {child.age}살</div>
             <hr className="border-gray-300" />
-            <div>난이도: {child.level}</div>
+            <div>평균 레벨: {child.averageLevel}</div>
             <hr className="border-gray-300" />
-            <div>과목: {child.subject}</div>
-            <hr className="border-gray-300" />
+            {/* <div>과목: {child.subject}</div>
+            <hr className="border-gray-300" /> */}
         </div>
-        <button className="mt-4 bg-yellow-400 hover:bg-yellow-500 text-white px-4 py-1 rounded">
+        <button className="mt-7 bg-tertiary hover:bg-yellow-500 text-white px-4 py-1 rounded">
             정보 수정
         </button>
     </div>

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import textLogoUrl from "@/assets/icons/TextLogo.svg";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -8,7 +9,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-200 py-3">
       <div className="mx-auto max-w-screen-xl px-6 sm:px-12 flex items-center justify-between">
         <div className="flex items-center gap-8">
-          <img src="/logo.svg" alt="logo" className="h-12 w-12 rounded-full" 
+          <img src={textLogoUrl} alt="logo" className="h-12 w-20 rounded-full" 
           onClick={() => navigate("/")}
           />
         

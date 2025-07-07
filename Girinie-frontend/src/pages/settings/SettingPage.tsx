@@ -43,7 +43,7 @@ const SettingPage: React.FC = () => {
       <header className="h-16 bg-white shadow" />
       <Sidebar />
 
-      <main className="ml-60 p-10 max-w-7xl mx-auto">
+      <main className="ml-60 p-10 mt-3 max-w-7xl mx-auto">
         <h3 className="text-xl font-semibold mb-4">아이 설정</h3>
 
         <div className="relative w-full max-w-5xl mx-auto bg-yellow-100 rounded-lg shadow-md p-8 overflow-hidden">
@@ -84,7 +84,7 @@ const SettingPage: React.FC = () => {
           )}
         </div>
 
-        <div className="mt-10 space-y-2 text-gray-800">
+        <div className="mt-20 space-y-2 text-gray-800">
           <div className="text-xl font-semibold mb-4">계정 설정</div>
           <div className="cursor-pointer hover:underline">로그아웃</div>
           <div className="text-red-500 cursor-pointer hover:underline">회원 탈퇴</div>

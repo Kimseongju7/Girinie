@@ -26,7 +26,7 @@ return (
     <nav className="divide-y divide-[#D9D9D9] border-t border-[#D9D9D9]">
         <div
             className={`hover:text-tertiary cursor-pointer px-8 py-4 ${
-            isActive('/report') ? 'font-bold text-black' : 'text-gray-400'
+            isActive('/chatbot') ? 'font-semibold text-black' : 'text-gray-400'
             }`}
             onClick={() => navigate('/chatbot')}
         >
@@ -34,11 +34,19 @@ return (
         </div>
         <div
             className={`hover:text-tertiary cursor-pointer px-8 py-4 ${
-            isActive('/settings') ? 'font-bold text-black' : 'text-gray-400'
+            isActive('/learning-rate') ? 'font-semibold text-black' : 'text-gray-400'
             }`}
             onClick={() => navigate('/learning-rate')}
         >
             학습률
+        </div>
+        <div
+            className={`hover:text-tertiary cursor-pointer px-8 py-4 ${
+            isActive('/test') ? 'font-semibold text-black' : 'text-gray-400'
+            }`}
+            onClick={() => navigate('/test')}
+        >
+            캘린더
         </div>
     </nav> 
     <hr className="border-t border-[#D9D9D9]" />
