@@ -16,6 +16,7 @@ from django.conf.global_settings import AUTH_USER_MODEL
 
 import common.apps
 import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -141,9 +142,14 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'parent_users.ParentUser'
-
 ALLOWED_HOSTS = ['*']  # 개발용으로만 허용 나중에 바꿔야 함
 CORS_ALLOW_ALL_ORIGINS = True # 개발용으로만 허용 나중에 바꿔야 함
-CSRF_TRUSTED_ORIGINS = ['https://*.app']  # CSRF 보호를 위한 설정, 개발용으로만 허용 나중에 바꿔야 함. ngrok 경로 허용
+
+load_dotenv()  # .env 파일 로드
+CSRF_TRUSTED_ORIGINS = [
+    "https://localhost:8000",
+    "https://localhost:8080",
+    f"https://{os.getenv('NGROK_SUBDOMAIN')}.ngrok-free.app",
+]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
