@@ -15,6 +15,7 @@ from pathlib import Path
 from django.conf.global_settings import AUTH_USER_MODEL
 
 import common.apps
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)@^pwck6danrcn(a7xqp=zvx3ffz_yxnr^txqdo^htp!r=&)18'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True # 배포 시 False 로 수정 필수
 
 ALLOWED_HOSTS = []
 
@@ -46,15 +47,18 @@ SYSTEM_APPS = [
 CUSTOM_APPS = [
     'parent_users.apps.ParentUserConfig',
     'common.apps.CommonConfig',
+    'child_users.apps.ChildUsersConfig',
 ]
 
 THIRD_PARTY_APPS = [
-    'rest_framework',
+    'rest_framework', 'drf_yasg',
+    'corsheaders',
 ]
 
 INSTALLED_APPS = SYSTEM_APPS + CUSTOM_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -137,3 +141,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'parent_users.ParentUser'
+
+ALLOWED_HOSTS = ['*']  # 개발용으로만 허용 나중에 바꿔야 함
+CORS_ALLOW_ALL_ORIGINS = True # 개발용으로만 허용 나중에 바꿔야 함
+CSRF_TRUSTED_ORIGINS = ['https://*.app']  # CSRF 보호를 위한 설정, 개발용으로만 허용 나중에 바꿔야 함. ngrok 경로 허용
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
