@@ -1,20 +1,22 @@
 import { useState } from "react";
 import { loginUser } from "@/api/auth/login";
 import { useNavigate } from "react-router-dom";
+import { useAuthStore } from "@/stores/authStore";
 
 export default function LoginPage() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const login = useAuthStore((state) => state.login);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log("로그인 시도:", id, password);
     try {
-      const res = await loginUser({ username: id, password });
-      console.log("로그인 성공", res);
+      await loginUser({ username: id, password });
+      login(); // Zustand 상태 변경
       alert("로그인 성공!");
-      navigate("/");
+      navigate("/home");
     } catch (err: any) {
       console.error("로그인 실패:", err.response?.data || err.message);
       alert("로그인 실패: " + (err.response?.status === 401 ? "인증 실패" : "오류 발생"));
