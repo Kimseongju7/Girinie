@@ -18,6 +18,8 @@ import common.apps
 import os
 from dotenv import load_dotenv
 
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -142,14 +144,34 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'parent_users.ParentUser'
-ALLOWED_HOSTS = ['*']  # 개발용으로만 허용 나중에 바꿔야 함
-CORS_ALLOW_ALL_ORIGINS = True # 개발용으로만 허용 나중에 바꿔야 함
 
-load_dotenv()  # .env 파일 로드
+NGROK_SUBDOMAIN = os.getenv('NGROK_SUBDOMAIN')
+NGROK_DOMAIN = f"{NGROK_SUBDOMAIN}.ngrok-free.app" if NGROK_SUBDOMAIN else None
+NGROK_ORIGIN = f"https://{NGROK_DOMAIN}" if NGROK_DOMAIN else None
+
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+]
+
+if NGROK_DOMAIN:
+    ALLOWED_HOSTS.append(NGROK_DOMAIN)
+
+# CORS 설정
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
+if NGROK_ORIGIN:
+    CORS_ALLOWED_ORIGINS.append(NGROK_ORIGIN)
+
+# CSRF 설정
 CSRF_TRUSTED_ORIGINS = [
     "https://localhost:8000",
     "https://localhost:8080",
-    f"https://{os.getenv('NGROK_SUBDOMAIN')}.ngrok-free.app",
 ]
+if NGROK_ORIGIN:
+    CSRF_TRUSTED_ORIGINS.append(NGROK_ORIGIN)
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
